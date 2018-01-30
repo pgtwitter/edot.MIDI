@@ -140,6 +140,13 @@
 	}
 
 	function messageDialog(newData) {
+		if (!(newData.Device.device < Device.devices.length)) {
+			var str0 = 'WARNING: The number of device is ' + Device.devices.length + ',';
+			var str1 = ' so it is not able to set the saved device index(' + newData.Device.device + ').';
+			var str2 = 'Set the first device (the index is 0).'
+			newData.Device.device = 0;
+			return alert(str0 + str1 + str2);
+		}
 		if (newData.deviceName == Device.devices[Device.data.device].name)
 			return;
 		var str0 = 'WARNING: The device name("' + Device.devices[Device.data.device].name + '")';
