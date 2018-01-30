@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<div id="msg" style="margin-top:20px;"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.0/dat.gui.min.js"></script>
+<script src="edot.MIDI.Receive.js"></script>
+<script type="text/javascript">
+	(function() {
+		var count = 0;
+		var state = {
+			numberBox: 100,
+			numberSlide: 0.5,
+			boolean: true,
+			option: 'B',
+			string: 'Foo bar',
+			function: function() {
+				count++;
+				document.getElementById('msg').innerHTML = 'count: ' + count;
+			},
+		};
+		document.addEventListener('DOMContentLoaded', function() {
+			var guiA = new dat.GUI();
+			guiA.add(state, 'numberBox');
+			guiA.add(state, 'numberSlide', -1.0, 1.0, 0.1);
+			guiA.add(state, 'boolean');
+			guiA.add(state, 'option', ['A', 'B', 'C', 'D']);
+			guiA.add(state, 'string');
+			guiA.add(state, 'function');
+			edot.MIDI.Receive(guiA, 'Ctrl A');
+			var guiB = new dat.GUI();
+			guiB.add(state, 'numberBox');
+			guiB.add(state, 'numberSlide', -1.0, 1.0, 0.1);
+			guiB.add(state, 'boolean');
+			guiB.add(state, 'option', ['A', 'B', 'C', 'D']);
+			guiB.add(state, 'string');
+			guiB.add(state, 'function');
+			edot.MIDI.Receive(guiB, 'Ctrl B');
+		});
+	}());
+</script>
+
+</html>
