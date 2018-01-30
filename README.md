@@ -1,4 +1,5 @@
 ## Receive
+edot.MIDI.Receiveはdat.gui.jsで作成されたUIをWebMIDIの受信によって操作できるようにするツールです．
 
 1. 'edot.Midi.Receive.js'を読み込むように追加する．
 
@@ -30,6 +31,7 @@
   ```
 
 ## Send
+edot.MIDI.Sendはdat.gui.jsを用いてWebMIDIの送信を行うツールです．
 
 1. 'edot.Midi.Send.js'を読み込むように追加する．
 
@@ -51,3 +53,6 @@
   // ...
   edot.MIDI.Send(gui);
   ```
+
+### WebMIDI対応ブラウザ
+  https://caniuse.com/#feat=midi
